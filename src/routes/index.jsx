@@ -1,20 +1,12 @@
-import Accueil from "../Accueil/Accueil";
+// Fichier de routes (par exemple routes/index.js)
 import Layout from "../Layout/Layout";
+import Home from "../Home";
 
 const routes = [
   {
-    path: "/",
+    path: "/", // page d'accueil du site
     element: <Layout />,
-    children: [
-      {
-        children: [
-          {
-            path: "",
-            element: <Accueil />,
-          },
-        ],
-      },
-    ],
+    children: [{ path: "/", element: <Home /> }], // Cette route correspond également à la route racine ('/').
   },
 ];
 
