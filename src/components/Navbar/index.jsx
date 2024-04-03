@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"; // crée des liens vers différentes routes de l'app
-import { Menu } from "lucide-react"; // pour les icones
+import { Menu, X } from "lucide-react"; // pour les icones
 import { useState } from "react"; // react
 
 const Navbar = () => {
@@ -19,13 +19,13 @@ const Navbar = () => {
   const [activeLink, setActiveLink] = useState("/");
 
   return (
-    <nav className="relative z-[2] w-full my-auto mx-0 px-8 py-12 md:px-[200px] flex items-center justify-between">
-      <span className="text-black text-4xl font-semibold">
+    <nav className="relative z-[2]  w-full my-auto mx-0 px-8 py-12 md:px-[200px] flex items-center justify-between">
+      <span className="text-black text-5xl font-semibold">
         <span>Tsara</span>
         <span className="text-red-500">Jet</span>
         <span className="text-green-500">Luxe</span>
       </span>
-      <div className="hidden md:flex items-center gap-7">
+      <div className="hidden md:flex items-center text-lg gap-7">
         {navLinks.map((navLink) => (
           <Link
             to={navLink.path}
@@ -46,7 +46,7 @@ const Navbar = () => {
         className="md:hidden block"
         onClick={() => setIsNavVisible(!isNavVisible)}
       >
-        <Menu />
+        {isNavVisible ? <X /> : <Menu />}
       </div>
       {isNavVisible && (
         <div className="absolute top-full left-0 w-full bg-black shadow-md flex flex-col items-center mt-2 py-5">

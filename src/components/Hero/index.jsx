@@ -1,7 +1,18 @@
 import { motion } from "framer-motion";
 import plane from "../../assets/images/TsaraJetLuxenobg.png";
 import { useInView } from "react-intersection-observer";
+import { Plane } from "lucide-react";
 const Hero = () => {
+  // destinations
+
+  const destinations = [
+    "Antananarivo",
+    "Antsiranana",
+    "Morondava",
+    "Mahajunga",
+    "Tuléar",
+  ];
+
   // Instance animations du héro section
   // useInView est un hook qui anime les éléments quand ils apparaissent
   const { ref: refText, inView: inViewText } = useInView({
@@ -22,13 +33,13 @@ const Hero = () => {
           animate={inViewText ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1 }}
         >
-          <div className="flex flex-col md:mt-0 justify-center md:items-start w-full px-2">
-            <p className="text-2xl capitalize italic text-white">
+          <div className="flex flex-col md:mt-0 justify-center md:items-start w-full px-2 gap-1">
+            <h1 className="text-2xl capitalize italic text-white">
               TsaraJetLuxe, le luxe aérien Malagasy
-            </p>
-            <h1 className="py-3 text-3xl uppercase  md:text-5xl font-bold text-red-500">
-              chaque décollage est une expérience exceptionnelle
             </h1>
+            <h2 className="py-3 text-3xl uppercase  md:text-5xl font-bold text-red-500">
+              chaque décollage est une expérience exceptionnelle
+            </h2>
             <p className="text-2xl text-green-500">
               Avec TsaraJetLuxe, embarquez pour un voyage où luxe et sérénité se
               rencontrent, et laissez-nous vous transporter au-delà des nuages
@@ -55,6 +66,47 @@ const Hero = () => {
             />
           </div>
         </motion.div>
+      </div>
+
+      <div className="flex flex-col  justify-center items-center py-4 px-4 md:max-w-[1060px] mx-auto md:my-auto bg-zinc-200 border-black rounded-xl shadow-xl ">
+        <h4 className="text-xl font-semibold flex flex-row gap-4">
+          Réservation <Plane size={30} />
+        </h4>
+        <div className="flex flex-col md:flex-row gap-4 py-4">
+          <label>
+            <input type="radio" name="typeVoyage" value="aller-retour" />
+            Aller-retour
+          </label>
+          <label>
+            <input type="radio" name="typeVoyage" value="aller" />
+            Aller
+          </label>
+          <label>
+            <input type="radio" name="typeVoyage" value="retour" />
+            Retour
+          </label>
+        </div>
+
+        <div className="flex flex-col md:flex-row gap-4 py-4">
+          <select name="De" id="">
+            <option value="">Sélectionnez votre origine</option>
+            {destinations.map((dest) => (
+              <option key={dest} value={dest}>
+                {" "}
+                {dest}
+              </option>
+            ))}
+          </select>
+          <select name="Où" id="">
+            <option value="">Où allez-vous</option>
+            {destinations.map((dest) => (
+              <option key={dest} value={dest}>
+                {" "}
+                {dest}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
     </div>
   );
