@@ -72,41 +72,95 @@ const Hero = () => {
         <h4 className="text-xl font-semibold flex flex-row gap-4">
           Réservation <Plane size={30} />
         </h4>
-        <div className="flex flex-col md:flex-row gap-4 py-4">
-          <label>
-            <input type="radio" name="typeVoyage" value="aller-retour" />
-            Aller-retour
-          </label>
-          <label>
-            <input type="radio" name="typeVoyage" value="aller" />
-            Aller
-          </label>
-          <label>
-            <input type="radio" name="typeVoyage" value="retour" />
-            Retour
-          </label>
-        </div>
+        <form className="flex flex-col md:flex-row">
+          {["aller", "retour"].map((direction, index) => (
+            <div key={index} className="py-1.5 px-2.5 flex-1">
+              <p>Voyage {direction === "aller" ? "Aller" : "Retour"} </p>
 
-        <div className="flex flex-col md:flex-row gap-4 py-4">
-          <select name="De" id="">
-            <option value="">Sélectionnez votre origine</option>
-            {destinations.map((dest) => (
-              <option key={dest} value={dest}>
-                {" "}
-                {dest}
-              </option>
-            ))}
-          </select>
-          <select name="Où" id="">
-            <option value="">Où allez-vous</option>
-            {destinations.map((dest) => (
-              <option key={dest} value={dest}>
-                {" "}
-                {dest}
-              </option>
-            ))}
-          </select>
-        </div>
+              <div className="flex">
+                <select
+                  name={direction}
+                  className="outline-none px-2 py-2 w-full"
+                  required
+                >
+                  <option value="" hidden>
+                    Sélectionnez
+                  </option>
+                  {destinations.map((destination, index) => (
+                    <option key={index} value={destination}>
+                      {destination}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+          ))}
+
+          <div className="py-1.5 px-2.5 flex-1 border-r-2">
+            <p>Date du voyage aller </p>
+            <input
+              type="date"
+              className="outline-none px-2 py-2 w-full"
+              name="date"
+              required
+            />
+          </div>
+
+          <div className="py-1.5 px-2.5 flex-1 border-r-2">
+            <p>Date du voyage retour </p>
+            <input
+              type="date"
+              className="outline-none px-2 py-2 w-full"
+              name="date"
+              required
+            />
+          </div>
+
+          <div className="py-1.5 px-2.5 flex-1 border-r-2">
+            <p>Passager</p>
+            <div className="flex flex-row">
+              <select
+                name="passagers"
+                className="outline-none px-2 py-2 w-full"
+                required
+              >
+                <option value="" hidden>
+                  Sélectionnez
+                </option>
+                <option value="1">Une personne</option>
+                <option value="2">Deux personnes</option>
+                <option value="3">Trois personnes</option>
+                <option value="4">Quatre personnes</option>
+                <option value="5">Cinq personnes</option>
+              </select>
+            </div>
+          </div>
+          <div className="py-1.5 px-2.5 flex-1 border-r-2">
+            <p>Classe du vol</p>
+            <div className="flex flex-row">
+              <select
+                name="classebillet"
+                className="outline-none px-2 py-2 w-full"
+                required
+              >
+                <option value="" hidden>
+                  Sélectionnez
+                </option>
+                <option value="Économie">Économie</option>
+                <option value="SuperÉconomie">Super Économie</option>
+                <option value="Business">Business</option>
+              </select>
+            </div>
+          </div>
+          <div className="py-1.5 px-2.5 flex-1 border-r-2">
+            <button
+              type="submit"
+              className="flex justify-center items-center bg-malagasyflag text-white rounded-lg   px-2 py-2 w-full"
+            >
+              <span>Réserve le vol</span>
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );
