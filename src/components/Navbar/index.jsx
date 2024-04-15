@@ -5,7 +5,7 @@ import { useState } from "react"; // react
 const Navbar = () => {
   const navLinks = [
     { title: "Accueil", path: "/" },
-    { title: "Comment", path: "/comment" },
+    { title: "Mes réservations", path: "/reservation" },
     { title: "Services", path: "/services" },
     { title: "Blog", path: "/blog" },
     { title: "Contactez-nous", path: "/contact" },

@@ -2,8 +2,25 @@ import { motion } from "framer-motion";
 import plane from "../../assets/images/TsaraJetLuxenobg.png";
 import { useInView } from "react-intersection-observer";
 import { Plane } from "lucide-react";
+import { useReservation } from "../../Context/ReservationContext";
+import { useState } from "react";
+import ReservationModal from "../Modal";
 const Hero = () => {
   // destinations
+  const [showModal, setShowModal] = useState();
+  const { addReservation } = useReservation();
+
+  const handleReservationSubmit = (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+    const reservationData = Object.fromEntries(formData.entries());
+
+    addReservation(reservationData);
+
+    setShowModal(true);
+    console.log(reservationData);
+  };
 
   const destinations = [
     "Antananarivo",
@@ -72,7 +89,10 @@ const Hero = () => {
         <h4 className="text-xl font-semibold flex flex-row gap-4">
           Réservation <Plane size={30} />
         </h4>
-        <form className="flex flex-col md:flex-row">
+        <form
+          className="flex flex-col md:flex-row"
+          onSubmit={handleReservationSubmit}
+        >
           {["aller", "retour"].map((direction, index) => (
             <div key={index} className="py-1.5 px-2.5 flex-1">
               <p>Voyage {direction === "aller" ? "Aller" : "Retour"} </p>
@@ -161,6 +181,7 @@ const Hero = () => {
             </button>
           </div>
         </form>
+        <ReservationModal showModal={showModal} setShowModal={setShowModal} />
       </div>
     </div>
   );

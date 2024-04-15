@@ -34,3 +34,7 @@ body {
     green
   );
 }
+
+.bg-gasy {
+  background-color: rgb(0, 123, 255);
+}
