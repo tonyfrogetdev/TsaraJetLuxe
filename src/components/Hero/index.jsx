@@ -172,12 +172,14 @@ const Hero = () => {
               </select>
             </div>
           </div>
-          <div className="py-1.5 px-2.5 flex-1 border-r-2">
+          <div className="py-1.5 px-2.5 ">
+            <p>Réserve le vol</p>
+            <div className="flex flex-row"></div>
             <button
               type="submit"
-              className="flex justify-center items-center bg-malagasyflag text-white rounded-lg   px-2 py-2 w-full"
+              className="py-2 px-2 bg-green-600 w-full h-10 hover:bg-red-600 hover:text-white"
             >
-              <span>Réserve le vol</span>
+              <span className="font-bold">Réserve</span>
             </button>
           </div>
         </form>

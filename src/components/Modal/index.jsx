@@ -4,7 +4,7 @@ const ReservationModal = ({ showModal, setShowModal }) => {
   return (
     <>
       {showModal && (
-        <div className="fixed flex flex-col gap-2  items-center justify-center bg-white border border-black rounded-lg p-8">
+        <div className="absolute md:fixed flex flex-col gap-2  items-center justify-center bg-white border border-black rounded-lg p-8">
           <div className="flex justify-start">
             <p className="text-lg text-center font-bold">
               Vol réservé et confirmé
