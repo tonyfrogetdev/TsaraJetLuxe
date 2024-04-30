@@ -8,9 +8,9 @@ const Features = () => {
   const featuresList = [
     {
       icon: <BedOutline color="#60a5fa" style={{ width: 60, height: 60 }} />,
-      title: "Hotels on the House",
+      title: "Hôtels à disposition",
       description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores laudantium vero quod sapiente adipisci sint perferendis ut praesentium repellat amet!",
+        "Profitez de notre service exclusif d'hôtels gratuits pour des séjours confortables lors de vos voyages. Nous vous offrons les meilleurs hébergements pour un repos parfait après une journée bien remplie.",
     },
     {
       icon: (
@@ -19,29 +19,33 @@ const Features = () => {
           style={{ width: 60, height: 60 }}
         />
       ),
-      title: "Safe to Trust",
+      title: "Sécurité garantie",
       description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores laudantium vero quod sapiente adipisci sint perferendis ut praesentium repellat amet!",
+        "Faites confiance à notre compagnie pour des voyages en toute sécurité. Nous mettons un point d'honneur à assurer la protection de nos passagers à chaque étape de leur voyage, de la réservation au retour à la maison.",
     },
     {
       icon: <EarthOutline color="#60a5fa" style={{ width: 60, height: 60 }} />,
-      title: "Worldwide Customers",
+      title: "Clients internationaux",
       description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores laudantium vero quod sapiente adipisci sint perferendis ut praesentium repellat amet!",
+        "Rejoignez notre vaste communauté de voyageurs du monde entier. Avec des clients provenant des quatre coins du globe, vous rencontrerez une diversité culturelle et des échanges enrichissants lors de vos voyages avec TsaraJetLuxe.",
     },
   ];
+
   return (
     <div className="mt-[550px] md:mt-0 flex w-full py-20 md:px-[200px] px-8 flex-col gap-16 justify-center items-center">
       <div className="flex flex-col w-full items-center">
-        <span className="font-semibold text-blue-500">Our Features</span>
-        <span className="font-semibold text-slate-700 text-3xl mt-1">
-          Our Priceless Features
+        <span className="font-semibold text-blue-500">Nos fonctionnalités</span>
+        <span className="font-semibold text-slate-700 text-3xl mt-1 text-center">
+          Nos fonctionnalités inestimables
         </span>
         <p className="max-w-[400px] text-center mt-4">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure animi et
-          quidem quis quas nisi.
+          Découvrez ce qui rend TsaraJetLuxe si unique. Nous vous offrons des
+          services exceptionnels qui transforment chaque voyage en une
+          expérience mémorable. Explorez nos fonctionnalités ci-dessous et
+          préparez-vous à être émerveillé.
         </p>
       </div>
+
       <div className="flex md:flex-row flex-col w-full items-center justify-between md:gap-0 gap-5">
         {featuresList.map((feature) => (
           <div
